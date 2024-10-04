@@ -16,6 +16,7 @@ app.desc='@project.description@'
 app.version='@project.version@'
 app.url=http://localhost:8080
 app.dev-name=UTN_TPI_2W2_02
+app.dev-mail=none@none.com
 
 #####  PORT #####
 server.port=8080
