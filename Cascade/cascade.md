@@ -19,7 +19,7 @@ public class Factura {
 
     private LocalDateTime fecha;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)  //<---- El cascade
     @JoinColumn(name = "id_detalle")
     private List<DetallesFactura> detalles = new ArrayList<>();
 
