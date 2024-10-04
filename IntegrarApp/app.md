@@ -46,4 +46,5 @@ url.api-datos=${URL_API_DATOS}
 url.api-datos=http://localhost:8081
 ```
 
-<em>En caso de ya haber visto lo del RestClient o RestTemplate, la variable de entorno a inyectar seria url.api-datos</em>
+<em>En caso de ya haber visto lo del RestClient o RestTemplate, la variable de entorno a inyectar seria url.api-datos. <br>
+ Ej: @Value("${url.api-datos}")</em>
