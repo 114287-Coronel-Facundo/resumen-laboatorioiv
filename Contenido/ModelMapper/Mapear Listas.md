@@ -4,7 +4,7 @@
   <em></em>
 </p>
 
-> de esta forma se mapean las listas de un tipo hacia listas de otro tipo
+> De esta forma se mapean las listas de un tipo hacia listas de otro tipo
  
  ````java
     public List<Distritos> getAll(){
