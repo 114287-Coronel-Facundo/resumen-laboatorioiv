@@ -3,7 +3,7 @@
 <p>
     <em>Es una propiedad la cual afectara en "cascada" es decir que afectara a todas las entidades que se encuentren contenidas dentro del mismo</em>
 </p>
-<em>Ejemplo:</em>
+<em>Factura:</em>
 
 ```java
 @Data
@@ -24,6 +24,30 @@ public class Factura {
     private List<DetallesFactura> detalles = new ArrayList<>();
 
     private BigDecimal total;
+}
+
+```
+
+<em>Detalles Factura:</em>
+```java
+@Data
+@Entity
+@Table(name = "detalles")
+public class DetallesFactura {
+    @Id
+    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @OneToOne
+    @JoinColumn(name = "producto_id")
+    private Producto producto;
+
+    private BigDecimal cantidad;
+
+    private BigDecimal precioUnitario;
+
+    private BigDecimal subtotal;
 }
 
 ```
