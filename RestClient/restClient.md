@@ -28,7 +28,7 @@ public class FakeWeatherRestClient {
     }
 
     @Value("${variable.de.entorno}")
-    private static final String HOST;;
+    private static final String HOST;
 
     @CircuitBreaker(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
     public ResponseEntity<List<LocationDto>> getAllLocation() {
