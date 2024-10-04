@@ -6,8 +6,8 @@
 
 
 ```properties
-# El umbral de tasa de fallos. Si el 50% de las llamadas fallan, el CB se abrira.
-resilience4j.circuitbreaker.instances.circuitBreakerParcial.failure-rate-threshold=50
+# El umbral de tasa de fallos. Si el 25% de las llamadas fallan, el CB se abrira.
+resilience4j.circuitbreaker.instances.circuitBreakerParcial.failure-rate-threshold=25
 # El umbral de llamadas lentas. Si el 50% de las llamadas son lentas, se considerarán como fallos.
 resilience4j.circuitbreaker.instances.circuitBreakerParcial.slow-call-rate-threshold=50
 # Define el tiempo que una llamada debe tardar en completarse para ser considerada como lenta, en milisegundos.
@@ -17,7 +17,7 @@ resilience4j.circuitbreaker.instances.circuitBreakerParcial.permitted-number-of-
 # Define el tipo de ventana deslizante que se utilizara.
 resilience4j.circuitbreaker.instances.circuitBreakerParcial.sliding-window-type=count_based
 # Tamaño de la ventana deslizante en cantidad de llamadas. 
-resilience4j.circuitbreaker.instances.circuitBreakerParcial.sliding-window-size=1
+resilience4j.circuitbreaker.instances.circuitBreakerParcial.sliding-window-size=5
 # Numero minimo de llamadas que se deben realizar antes de que el CB empiece a calcular el estado abierto o cerrado.
 resilience4j.circuitbreaker.instances.circuitBreakerParcial.minimum-number-of-calls=5
 # Duracionen milisegundos que el CB permanecera en estado abierto antes de pasar a half-open.
