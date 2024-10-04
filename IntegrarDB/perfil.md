@@ -1,11 +1,11 @@
 # Integrar DB
 
 <p>
-    <em>Tercer paso para realizar la integracion de una DB es crear un perfil.</em>
+    <em>Tercer paso para realizar la integracion de una DB es crear un perfil. Es importante darles el mismo nombre que indico, estaran en negrita.</em>
 </p>
 
 
-<em>Copiar, pegar y reemplazar directo. Este es el application.properties.</em>
+<em>Copiar, pegar y reemplazar directo. Este es el **application.properties**.</em>
 ```properties
 #### Spring Aplication Name ####
 spring.application.name=REEMPLAZAR
@@ -40,7 +40,7 @@ logging.level.root=WARN
 spring.jpa.open-in-view=false
 ```
 
-<em>Copiar y pegar directo. Este es el application-dev.properties.</em>
+<em>Copiar y pegar directo. Este es el **application-dev.properties**.</em>
 ```properties
 spring.datasource.url=jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
 spring.datasource.driverClassName=org.h2.Driver
@@ -59,7 +59,7 @@ spring.jpa.defer-datasource-initialization=true
 spring.sql.init.mode=embedded
 ```
 
-<em>Copiar y pegar directo. Este es el application-prod.properties. Las inyecciones se hacen mediante el docker-compose.yml</em>
+<em>Copiar y pegar directo. Este es el **application-prod.properties**. Las inyecciones se hacen mediante el docker-compose.yml</em>
 ```properties
 spring.datasource.url=${SPRING_DATASOURCE_URL}
 

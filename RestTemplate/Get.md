@@ -16,9 +16,6 @@ public class PostRestClient {
     public ResponseEntity<List<Post>> getPosts(){
         return ResponseEntity.ok(Arrays.asList(restTemplate.getForEntity(HOST, Post[].class)));
     }
-    public ResponseEntity<Post> getPost(Long id){
-        return restTemplate.getForEntity(HOST + "/"+ id, Post.class);
-    }
 }
 ````
 
