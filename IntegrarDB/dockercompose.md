@@ -46,3 +46,9 @@ networks:
   parcial-network:
 
 ```
+
+### Importante:
+- Los datos de **SPRING_DATASOURCE_USERNAME** y **MYSQL_USER** tienen que ser iguales.
+- Los datos de **SPRING_DATASOURCE_PASSWORD** y **MYSQL_PASSWORD** tienen que ser iguales.
+- El valor de **SPRING_DATASOURCE_URL** donde dice exclusivamente REEMPLAZAR debe ser reemplazado por el nombre de la base de datos, que también tiene que ser igual a **MYSQL_DATABASE**.
+- La network no es necesaria, pero yo la pongo por las dudas.
