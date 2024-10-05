@@ -47,3 +47,5 @@
 # Explicacion 
 
 <em>En este caso como el metodo privado es **void**, no devolvera nada, en caso de que tu metodo privado devuelva algo, el metodo de invokeMethod devuelve un generico, asi que vas a poder atraparlo, cualquiera sea la variable que devuelve tu metodo privado.</em>
+<br><br>
+<em>El metodo invokedMethod te pedira la instancia de la clase que deseas testear, el nombre del metodo privado y sus parametros, como si llamaras a la funcion normal.</em>
