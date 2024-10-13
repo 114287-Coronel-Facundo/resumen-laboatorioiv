@@ -20,8 +20,12 @@ services:
       - "3306:3306"
     volumes:1
       - mysql_data:/var/lib/mysql
-    networks:
-      - parcial-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      start_period: 10s
+      interval: 10s
+      timeout: 5s
+      retries: 25
 
   app:
     build:
@@ -35,15 +39,11 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - mysql
-    networks:
-      - parcial-network
+      mysql:
+        condition: service_healthy
 
 volumes:
   mysql_data:
-
-networks:
-  parcial-network:
 
 ```
 
