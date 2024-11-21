@@ -20,7 +20,7 @@ public class RandomDataForObject {
 
     private static final Random random = new Random();
 
-    public static <T> T generateRandomValues(T obj) throws IllegalAccessException {
+    public static <T> T generateRandomValuesCascade(T obj) throws IllegalAccessException {
         Field[] fields = obj.getClass().getDeclaredFields();
         for (Field field : fields) {
             field.setAccessible(true);
@@ -48,8 +48,68 @@ public class RandomDataForObject {
                 field.set(obj, UUID.randomUUID());
             } else {
                 Object instance = createInstance(field.getType());
-                generateRandomValues(instance);
+                generateRandomValuesCascade(instance);
                 field.set(obj, instance);
+            }
+        }
+        return obj;
+    }
+
+    public static <T> T generateRandomValue(T obj) throws IllegalAccessException {
+        Field[] fields = obj.getClass().getDeclaredFields();
+        for (Field field : fields) {
+            field.setAccessible(true);
+
+            if (field.getType() == Long.class) {
+                field.set(obj, (long) random.nextInt(1000));
+            } else if (field.getType() == Integer.class) {
+                field.set(obj, random.nextInt(100));
+            } else if (field.getType() == Double.class) {
+                field.set(obj, random.nextDouble() * 100);
+            } else if (field.getType() == BigDecimal.class) {
+                field.set(obj, BigDecimal.valueOf(random.nextDouble(100)));
+            } else if (field.getType() == BigInteger.class) {
+                field.set(obj, BigInteger.valueOf(random.nextInt(100)));
+            } else if (field.getType() == String.class) {
+                field.set(obj, generateRandomString(5));
+            } else if (List.class.isAssignableFrom(field.getType())) {
+                field.set(obj, List.of());
+            } else if (field.getType().isEnum()) {
+                field.set(obj, getRandomEnumValue(field.getType()));
+            } else if (field.getType() == LocalDateTime.class) {
+                field.set(obj, LocalDateTime.now());
+            } else if (field.getType() == UUID.class) {
+                field.set(obj, UUID.randomUUID());
+            }
+        }
+        return obj;
+    }
+
+    public static <T> T generateRandomValueCascadeWithoutList(T obj) throws IllegalAccessException {
+        Field[] fields = obj.getClass().getDeclaredFields();
+        for (Field field : fields) {
+            field.setAccessible(true);
+
+            if (field.getType() == Long.class) {
+                field.set(obj, (long) random.nextInt(1000));
+            } else if (field.getType() == Integer.class) {
+                field.set(obj, random.nextInt(100));
+            } else if (field.getType() == Double.class) {
+                field.set(obj, random.nextDouble() * 100);
+            } else if (field.getType() == BigDecimal.class) {
+                field.set(obj, BigDecimal.valueOf(random.nextDouble(100)));
+            } else if (field.getType() == BigInteger.class) {
+                field.set(obj, BigInteger.valueOf(random.nextInt(100)));
+            } else if (field.getType() == String.class) {
+                field.set(obj, generateRandomString(5));
+            } else if (List.class.isAssignableFrom(field.getType())) {
+//                field.set(obj, List.of());
+            } else if (field.getType().isEnum()) {
+                field.set(obj, getRandomEnumValue(field.getType()));
+            } else if (field.getType() == LocalDateTime.class) {
+                field.set(obj, LocalDateTime.now());
+            } else if (field.getType() == UUID.class) {
+                field.set(obj, UUID.randomUUID());
             }
         }
         return obj;
@@ -80,7 +140,7 @@ public class RandomDataForObject {
                 field.set(obj, UUID.randomUUID());
             } else {
                 Object instance = createInstance(genericType);
-                generateRandomValues(instance);
+                generateRandomValuesCascade(instance);
                 list.add(instance);
             }
         }
