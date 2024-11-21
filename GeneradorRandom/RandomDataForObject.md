@@ -34,7 +34,7 @@ public class RandomDataForObject {
             } else if (field.getType() == BigDecimal.class) {
                 field.set(obj, BigDecimal.valueOf(random.nextDouble()));
             } else if (field.getType() == BigInteger.class) {
-                field.set(obj, BigDecimal.valueOf(random.nextInt(100)));
+                field.set(obj, BigInteger.valueOf(random.nextInt(100)));
             } else if (field.getType() == String.class) {
                 field.set(obj, generateRandomString(5));
             } else if (List.class.isAssignableFrom(field.getType())) {
