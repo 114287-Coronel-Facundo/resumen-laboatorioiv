@@ -20,7 +20,7 @@ public class RandomDataForObject {
 
     private static final Random random = new Random();
 
-    public static Object generateRandomValues(Object obj) throws IllegalAccessException {
+    public static <T> T generateRandomValues(T obj) throws IllegalAccessException {
         Field[] fields = obj.getClass().getDeclaredFields();
         for (Field field : fields) {
             field.setAccessible(true);
@@ -32,13 +32,14 @@ public class RandomDataForObject {
             } else if (field.getType() == Double.class) {
                 field.set(obj, random.nextDouble() * 100);
             } else if (field.getType() == BigDecimal.class) {
-                field.set(obj, BigDecimal.valueOf(random.nextDouble()));
+                field.set(obj, BigDecimal.valueOf(random.nextDouble(100)));
             } else if (field.getType() == BigInteger.class) {
                 field.set(obj, BigInteger.valueOf(random.nextInt(100)));
             } else if (field.getType() == String.class) {
                 field.set(obj, generateRandomString(5));
             } else if (List.class.isAssignableFrom(field.getType())) {
-                generateRandomList(field, obj);
+                field.set(obj, List.of());
+                //generateRandomList(field, obj);
             } else if (field.getType().isEnum()) {
                 field.set(obj, getRandomEnumValue(field.getType()));
             } else if (field.getType() == LocalDateTime.class) {
@@ -66,7 +67,7 @@ public class RandomDataForObject {
             } else if (genericType == Double.class) {
                 list.add(random.nextDouble() * 100);
             } else if (genericType == BigDecimal.class) {
-                list.add(BigDecimal.valueOf(random.nextDouble()));
+                list.add(BigDecimal.valueOf(random.nextDouble(100)));
             } else if (genericType == BigInteger.class) {
                 list.add(BigInteger.valueOf(random.nextInt(100)));
             } else if (genericType == String.class) {
@@ -107,5 +108,4 @@ public class RandomDataForObject {
         return enumConstants[random.nextInt(enumConstants.length)];
     }
 }
-
 ```
