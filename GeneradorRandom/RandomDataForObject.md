@@ -42,8 +42,7 @@ public class RandomDataForObject {
             } else if (field.getType() == String.class) {
                 field.set(obj, generateRandomString(5));
             } else if (List.class.isAssignableFrom(field.getType())) {
-                field.set(obj, List.of());
-                //generateRandomList(field, obj);
+                generateRandomList(field, obj);
             } else if (field.getType().isEnum()) {
                 field.set(obj, getRandomEnumValue(field.getType()));
             } else if (field.getType() == LocalDateTime.class) {
@@ -115,7 +114,7 @@ public class RandomDataForObject {
             } else if (field.getType() == String.class) {
                 field.set(obj, generateRandomString(5));
             } else if (List.class.isAssignableFrom(field.getType())) {
-//                field.set(obj, List.of());
+                field.set(obj, List.of());
             } else if (field.getType().isEnum()) {
                 field.set(obj, getRandomEnumValue(field.getType()));
             } else if (field.getType() == LocalDateTime.class) {
