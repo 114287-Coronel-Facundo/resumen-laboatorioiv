@@ -31,6 +31,10 @@ public class RandomDataForObject {
                 field.set(obj, random.nextInt(100));
             } else if (field.getType() == Double.class) {
                 field.set(obj, random.nextDouble() * 100);
+            } else if (field.getType() == Boolean.class) {
+                field.set(obj, random.nextBoolean());
+            } else if (field.getType() == boolean.class) {
+                field.set(obj, random.nextBoolean());
             } else if (field.getType() == BigDecimal.class) {
                 field.set(obj, BigDecimal.valueOf(random.nextDouble(100)));
             } else if (field.getType() == BigInteger.class) {
@@ -66,6 +70,10 @@ public class RandomDataForObject {
                 field.set(obj, random.nextInt(100));
             } else if (field.getType() == Double.class) {
                 field.set(obj, random.nextDouble() * 100);
+            }  else if (field.getType() == Boolean.class) {
+                field.set(obj, random.nextBoolean());
+            } else if (field.getType() == boolean.class) {
+                field.set(obj, random.nextBoolean());
             } else if (field.getType() == BigDecimal.class) {
                 field.set(obj, BigDecimal.valueOf(random.nextDouble(100)));
             } else if (field.getType() == BigInteger.class) {
@@ -96,6 +104,10 @@ public class RandomDataForObject {
                 field.set(obj, random.nextInt(100));
             } else if (field.getType() == Double.class) {
                 field.set(obj, random.nextDouble() * 100);
+            }  else if (field.getType() == Boolean.class) {
+                field.set(obj, random.nextBoolean());
+            } else if (field.getType() == boolean.class) {
+                field.set(obj, random.nextBoolean());
             } else if (field.getType() == BigDecimal.class) {
                 field.set(obj, BigDecimal.valueOf(random.nextDouble(100)));
             } else if (field.getType() == BigInteger.class) {
@@ -136,6 +148,10 @@ public class RandomDataForObject {
                 list.add(getRandomEnumValue(genericType));
             } else if (genericType == LocalDateTime.class) {
                 field.set(obj, LocalDateTime.now());
+            } else if (field.getType() == Boolean.class) {
+                field.set(obj, random.nextBoolean());
+            } else if (field.getType() == boolean.class) {
+                field.set(obj, random.nextBoolean());
             } else if (genericType == UUID.class) {
                 field.set(obj, UUID.randomUUID());
             } else {
