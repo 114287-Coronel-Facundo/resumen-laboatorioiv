@@ -22,3 +22,10 @@ Aservices:
 
 networks:
   elections:
+
+
+
+
+application.properties.
+server.port=8081
+EXTERNAL_API_URL=${EXTERNAL_API_URL
